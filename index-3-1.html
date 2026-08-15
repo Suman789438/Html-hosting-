@@ -1,0 +1,3923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SHR HOSTER - Premium Enterprise Cloud & Server Hosting Solutions</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ==========================================================================
+           1. CORE CSS SYSTEM & DESIGN TOKENS
+           ========================================================================== */
+        :root {
+            --primary: #6d28d9;
+            --primary-hover: #5b21b6;
+            --primary-light: #f3ecfe;
+            --primary-alpha: rgba(109, 40, 217, 0.12);
+
+            --secondary: #0ea5e9;
+            --secondary-hover: #0284c7;
+            --secondary-light: #e0f6ff;
+
+            --accent: #10b981;
+            --accent-hover: #059669;
+            --accent-light: #ecfdf5;
+
+            --pink: #ec4899;
+            --pink-light: #fce7f3;
+            --orange: #f97316;
+            --orange-light: #ffedd5;
+
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+
+            --bg-body: #f5f6fb;
+            --bg-surface: #ffffff;
+            --bg-glass: rgba(255, 255, 255, 0.8);
+            --bg-subtle: #f1f2fb;
+            --bg-dark: #0f1024;
+
+            --text-main: #12122b;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            --text-white: #ffffff;
+
+            --border-color: #e6e7f3;
+            --border-hover: #cbd0ea;
+
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 22px;
+            --radius-full: 9999px;
+
+            /* Signature gradients — used across CTAs, headers and accents */
+            --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #6d28d9 45%, #4f46e5 100%);
+            --gradient-secondary: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+            --gradient-accent: linear-gradient(135deg, #10b981 0%, #0ea5e9 100%);
+            --gradient-warm: linear-gradient(135deg, #f97316 0%, #ec4899 100%);
+            --gradient-hero-bg: radial-gradient(circle at 15% 0%, rgba(124, 58, 237, 0.14) 0%, transparent 55%),
+                                 radial-gradient(circle at 85% 10%, rgba(14, 165, 233, 0.14) 0%, transparent 55%),
+                                 radial-gradient(circle at 50% 100%, rgba(16, 185, 129, 0.10) 0%, transparent 60%);
+            --gradient-text: linear-gradient(135deg, #7c3aed 0%, #4f46e5 40%, #0ea5e9 100%);
+            --gradient-call: linear-gradient(135deg, #10b981 0%, #059669 100%);
+
+            --shadow-sm: 0 1px 2px 0 rgba(18, 18, 43, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(18, 18, 43, 0.08), 0 2px 4px -1px rgba(18, 18, 43, 0.04);
+            --shadow-lg: 0 10px 25px -5px rgba(18, 18, 43, 0.10), 0 8px 10px -6px rgba(18, 18, 43, 0.02);
+            --shadow-xl: 0 20px 40px -12px rgba(18, 18, 43, 0.18);
+            --shadow-glow-primary: 0 8px 24px -4px rgba(109, 40, 217, 0.45);
+            --shadow-glow-accent: 0 8px 24px -4px rgba(16, 185, 129, 0.45);
+            --shadow-glow-call: 0 10px 28px -6px rgba(16, 185, 129, 0.55);
+
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-code: 'JetBrains Mono', monospace;
+        }
+
+        /* --- Global Reset & Box Sizing Fix --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-body);
+            background-image: var(--gradient-hero-bg);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: var(--text-white);
+        }
+
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-subtle); }
+        ::-webkit-scrollbar-thumb { background: var(--gradient-primary); border-radius: var(--radius-full); }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        button, input, select, textarea {
+            font: inherit;
+            outline: none;
+            border: none;
+        }
+
+        button {
+            cursor: pointer;
+            background: none;
+        }
+
+        img, svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Responsive Container Engine */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Section Utility Styling */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title-wrapper {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-subtitle {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.25;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+        }
+
+        /* Buttons Component System */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 28px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-normal);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            background-size: 160% 160%;
+            color: var(--text-white);
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        .btn-primary:hover {
+            background-position: 100% 0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 26px -4px rgba(109, 40, 217, 0.55);
+        }
+
+        .btn-secondary {
+            background: var(--bg-surface);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+            color: var(--text-white);
+            box-shadow: var(--shadow-glow-accent);
+        }
+
+        .btn-accent:hover {
+            filter: brightness(1.06);
+            transform: translateY(-2px);
+        }
+
+        .btn-warm {
+            background: var(--gradient-warm);
+            color: var(--text-white);
+            box-shadow: 0 8px 24px -4px rgba(236, 72, 153, 0.45);
+        }
+
+        .btn-warm:hover {
+            filter: brightness(1.06);
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled, .btn.is-disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           2. HEADER & NAVIGATION SYSTEM
+           ========================================================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all var(--transition-normal);
+        }
+
+        .site-header::before {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--gradient-primary);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .brand-logo i {
+            color: var(--text-white);
+            font-size: 1.8rem;
+            background: var(--gradient-primary);
+            padding: 8px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        .brand-logo span {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* 3-Lines Mobile Hamburger Button */
+        .hamburger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger-btn span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-main);
+            border-radius: 3px;
+            transition: all var(--transition-normal);
+        }
+
+        .hamburger-btn.active span:nth-child(1) {
+            transform: translateY(8.5px) rotate(45deg);
+        }
+
+        .hamburger-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-btn.active span:nth-child(3) {
+            transform: translateY(-8.5px) rotate(-45deg);
+        }
+
+        /* Mobile Drawer Menu Layer */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 360px;
+            height: 100vh;
+            background: var(--bg-surface);
+            box-shadow: var(--shadow-xl);
+            z-index: 999;
+            padding: 100px 32px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: right var(--transition-normal);
+        }
+
+        .mobile-drawer.active {
+            right: 0;
+        }
+
+        .mobile-drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-normal);
+        }
+
+        .mobile-drawer-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-nav-link {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* ==========================================================================
+           3. HERO SECTION SYSTEM
+           ========================================================================== */
+        .hero-section {
+            padding: 80px 0 100px;
+            background: var(--gradient-hero-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: var(--primary-light);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            border-radius: var(--radius-full);
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge i {
+            animation: pulse 2s infinite;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .hero-title span {
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            max-width: 540px;
+        }
+
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-features-list {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .hero-feature-item i {
+            color: var(--accent);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .server-card-preview {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            z-index: 2;
+        }
+
+        .preview-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .terminal-code {
+            font-family: var(--font-code);
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            overflow-x: auto;
+        }
+
+        .terminal-code .cmd { color: #f8fafc; }
+        .terminal-code .success { color: #4ade80; }
+
+        /* Floating Info Badges */
+        .floating-card {
+            position: absolute;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 14px 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 3;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-card-1 {
+            top: -20px;
+            right: -20px;
+        }
+
+        .floating-card-2 {
+            bottom: -20px;
+            left: -20px;
+            animation-delay: 2s;
+        }
+
+        /* ==========================================================================
+           4. PRICING & PLANS ENGINE
+           ========================================================================== */
+        .pricing-section {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .price-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all var(--transition-normal);
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .featured-tag {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--text-white);
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 16px;
+            border-radius: var(--radius-full);
+        }
+
+        .plan-header {
+            margin-bottom: 24px;
+        }
+
+        .plan-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+        }
+
+        .badge-free { background: #e0e7ff; color: var(--primary); }
+        .badge-pro { background: #e0f2fe; color: var(--secondary); }
+        .badge-business { background: #dcfce7; color: var(--accent); }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .plan-price {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .price-currency {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .price-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1;
+        }
+
+        .price-period {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .plan-description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 24px 0 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .plan-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .plan-feature-item i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .plan-feature-item.disabled {
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+
+        .plan-feature-item.disabled i {
+            color: var(--text-light);
+        }
+
+        /* Pricing Slider System for Custom VPS */
+        .calculator-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            margin-top: 60px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .slider-control {
+            margin-bottom: 24px;
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .range-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--border-color);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+        }
+
+        /* ==========================================================================
+           5. DASHBOARD & CLIENT CONTROL PANEL UI
+           ========================================================================== */
+        .dashboard-section {
+            display: none; /* Dynamic visibility toggled via JS */
+            padding: 40px 0 80px;
+            background: var(--bg-body);
+        }
+
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 30px;
+        }
+
+        .dashboard-sidebar {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            height: fit-content;
+        }
+
+        .user-profile-summary {
+            text-align: center;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .avatar-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 auto 12px;
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        .dash-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .dash-menu-item a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .dash-menu-item.active a {
+            background: var(--gradient-primary);
+            color: var(--text-white);
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        .dash-menu-item a:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .dash-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .dash-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-top: 3px solid transparent;
+            border-image: var(--gradient-primary) 1;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .metric-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 6px;
+            background: var(--bg-subtle);
+            border-radius: 3px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+            transition: width var(--transition-normal);
+        }
+
+        .server-status-panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .status-active { background: var(--accent-light); color: var(--accent); }
+        .status-stopped { background: #fee2e2; color: var(--danger); }
+        .status-provisioning { background: #fef3c7; color: var(--warning); }
+
+        /* ==========================================================================
+           5B. SERVER PROVISIONING, FILE MANAGER & LIVE CONSOLE SYSTEM
+           ========================================================================== */
+
+        /* --- Dashboard sub-view switching (Overview / Instances / Server Detail) --- */
+        .dash-panel { display: none; flex-direction: column; gap: 24px; }
+        .dash-panel.active { display: flex; }
+
+        .dash-panel-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .plan-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            background: var(--primary-light);
+            color: var(--primary);
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        /* --- Instances grid & empty state --- */
+        .instances-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .instance-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .instance-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .instance-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .instance-icon-wrap {
+            width: 46px;
+            height: 46px;
+            border-radius: var(--radius-md);
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .instance-name {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .instance-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: var(--font-code);
+        }
+
+        .instance-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 14px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .create-instance-card {
+            border: 2px dashed var(--border-hover);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 24px;
+            min-height: 180px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+
+        .create-instance-card:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .create-instance-card i { font-size: 1.6rem; }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+
+        .empty-state i {
+            font-size: 2.5rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        /* --- Server Detail view --- */
+        .server-detail-header {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .back-link:hover { color: var(--primary); }
+
+        .server-detail-tabs {
+            display: flex;
+            gap: 6px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 6px;
+            width: fit-content;
+        }
+
+        .server-tab-btn {
+            padding: 9px 18px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .server-tab-btn.active {
+            background: var(--gradient-primary);
+            color: var(--text-white);
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        .server-tab-panel { display: none; }
+        .server-tab-panel.active { display: block; }
+
+        /* --- Deploy Tab: Startup Command & Requirements Installer --- */
+        .deploy-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .deploy-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .deploy-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .deploy-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .deploy-card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .deploy-card-icon.icon-purple { background: var(--gradient-primary); box-shadow: var(--shadow-glow-primary); }
+        .deploy-card-icon.icon-green { background: var(--gradient-accent); box-shadow: var(--shadow-glow-accent); }
+        .deploy-card-icon.icon-orange { background: var(--gradient-warm); box-shadow: 0 8px 24px -4px rgba(236,72,153,0.4); }
+
+        .deploy-card-title { font-size: 1.1rem; font-weight: 800; color: var(--text-main); }
+        .deploy-card-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+
+        .command-input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .command-input-row .input-wrapper { flex: 1; }
+
+        .command-input-row .form-input {
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+        }
+
+        .requirements-textarea {
+            width: 100%;
+            min-height: 160px;
+            font-family: var(--font-code);
+            font-size: 0.88rem;
+            background: var(--bg-dark);
+            color: #d4e5ff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            resize: vertical;
+            line-height: 1.7;
+        }
+
+        .requirements-textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-alpha);
+        }
+
+        .deploy-hint {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--bg-subtle);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            margin-top: 14px;
+        }
+
+        .deploy-hint i { color: var(--secondary); margin-top: 2px; }
+
+        .deploy-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .quick-cmd-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: var(--font-code);
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .quick-cmd-chip:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        /* --- Floating Call / Support Widget --- */
+        .call-fab {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            z-index: 1500;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-call);
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: var(--shadow-glow-call);
+            cursor: pointer;
+            transition: transform var(--transition-normal);
+        }
+
+        .call-fab:hover { transform: scale(1.08); }
+
+        .call-fab::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px solid rgba(16, 185, 129, 0.6);
+            animation: callPulse 1.8s infinite;
+        }
+
+        @keyframes callPulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            100% { transform: scale(1.9); opacity: 0; }
+        }
+
+        .call-panel {
+            position: fixed;
+            bottom: 100px;
+            right: 26px;
+            z-index: 1500;
+            width: 300px;
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-color);
+            padding: 22px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(16px) scale(0.96);
+            transition: all var(--transition-normal);
+        }
+
+        .call-panel.active {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0) scale(1);
+        }
+
+        .call-panel-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .call-panel-header .avatar-circle {
+            width: 44px; height: 44px; font-size: 1.1rem; margin: 0;
+            background: var(--gradient-call);
+        }
+
+        .call-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: var(--radius-md);
+            background: var(--bg-subtle);
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            transition: all var(--transition-fast);
+        }
+
+        .call-option:hover { transform: translateX(3px); }
+
+        .call-option i {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-white);
+            flex-shrink: 0;
+        }
+
+        .call-option.opt-call i { background: var(--gradient-call); }
+        .call-option.opt-whatsapp i { background: #25D366; }
+        .call-option.opt-email i { background: var(--gradient-secondary); }
+
+        @media (max-width: 480px) {
+            .call-panel { width: calc(100% - 32px); right: 16px; bottom: 92px; }
+            .call-fab { right: 16px; bottom: 16px; }
+        }
+
+        /* --- File Manager --- */
+        .file-manager-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+        }
+
+        .file-manager-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .file-drop-zone {
+            border: 2px dashed var(--border-hover);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .file-drop-zone.drag-active, .file-drop-zone:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .file-drop-zone i { font-size: 1.6rem; margin-bottom: 8px; display: block; }
+
+        .file-list { display: flex; flex-direction: column; gap: 10px; }
+
+        .file-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            background: var(--bg-subtle);
+            border-radius: var(--radius-md);
+            border: 1px solid transparent;
+        }
+
+        .file-row:hover { border-color: var(--border-hover); }
+
+        .file-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-sm);
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .file-info { flex: 1; min-width: 0; }
+
+        .file-name-text {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            font-family: var(--font-code);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .file-name-input {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            font-family: var(--font-code);
+            background: var(--bg-surface);
+            border: 1px solid var(--primary);
+            border-radius: var(--radius-sm);
+            padding: 4px 8px;
+            width: 100%;
+        }
+
+        .file-meta-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .file-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+        .icon-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-fast);
+        }
+
+        .icon-btn:hover { color: var(--primary); border-color: var(--primary); }
+        .icon-btn.danger:hover { color: var(--danger); border-color: var(--danger); }
+
+        .file-badge-main {
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            margin-left: 8px;
+        }
+
+        /* --- Live Console --- */
+        .console-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .console-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .console-select {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 8px 12px;
+            font-family: var(--font-code);
+            font-size: 0.82rem;
+            color: var(--text-main);
+        }
+
+        .console-output {
+            background: #0b1120;
+            color: #cbd5e1;
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+            line-height: 1.8;
+            padding: 20px;
+            height: 380px;
+            overflow-y: auto;
+        }
+
+        .console-line { white-space: pre-wrap; word-break: break-word; }
+        .console-line.log-info { color: #7dd3fc; }
+        .console-line.log-success { color: #4ade80; }
+        .console-line.log-error { color: #f87171; }
+        .console-line.log-warn { color: #fbbf24; }
+        .console-line.log-muted { color: #64748b; }
+
+        .console-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 14px;
+            background: #4ade80;
+            animation: pulse 1s infinite;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        /* --- Language picker (Create Server modal) --- */
+        .lang-picker-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .lang-option {
+            position: relative;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 14px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .lang-option:hover:not(.locked) { border-color: var(--primary); }
+
+        .lang-option.selected {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .lang-option.locked {
+            opacity: 0.55;
+            cursor: not-allowed;
+            background: var(--bg-subtle);
+        }
+
+        .lang-option i.lang-icon { font-size: 1.15rem; }
+
+        .lang-lock-tag {
+            margin-left: auto;
+            font-size: 0.62rem;
+            font-weight: 800;
+            background: var(--warning);
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+        }
+
+        .plan-limit-note {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            margin-top: 18px;
+        }
+
+        .server-create-card {
+            max-width: 520px;
+        }
+
+        /* --- Confirm dialog (delete server / file) --- */
+        .confirm-card { max-width: 400px; text-align: center; }
+        .confirm-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #fee2e2;
+            color: var(--danger);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+        }
+
+        /* ==========================================================================
+           6. AUTHENTICATION SYSTEM (MODALS & FORMS)
+           ========================================================================== */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-normal);
+        }
+
+        .modal-backdrop.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .auth-card {
+            background: var(--bg-surface);
+            width: 100%;
+            max-width: 440px;
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform var(--transition-normal);
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-backdrop.active .auth-card {
+            transform: translateY(0);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background var(--transition-fast);
+        }
+
+        .modal-close-btn:hover {
+            background: var(--bg-subtle);
+            color: var(--text-main);
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .auth-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .auth-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 14px;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 14px 12px 42px;
+            background: var(--bg-body);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            color: var(--text-main);
+            transition: all var(--transition-fast);
+        }
+
+        .form-input:focus {
+            background: var(--bg-surface);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-alpha);
+        }
+
+        .form-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .forgot-link {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .auth-switch a {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ==========================================================================
+           7. FEATURES & SERVICES SECTION
+           ========================================================================== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: all var(--transition-normal);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .feature-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-md);
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================================================
+           8. FAQ & KNOWLEDGEBASE ACCORDION
+           ========================================================================== */
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all var(--transition-fast);
+        }
+
+        .faq-header {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .faq-header i {
+            transition: transform var(--transition-normal);
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-header i {
+            transform: rotate(180deg);
+        }
+
+        .faq-body {
+            padding: 0 24px 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: none;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-body {
+            display: block;
+        }
+
+        /* ==========================================================================
+           9. FOOTER SYSTEM
+           ========================================================================== */
+        .site-footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-color);
+            padding-top: 80px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 40px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin: 20px 0;
+            max-width: 320px;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-subtle);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .social-btn:hover {
+            background: var(--primary);
+            color: var(--text-white);
+        }
+
+        .footer-column-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .footer-links-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-link {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            padding: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Notifications & Alerts Overlay System */
+        .toast-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 3000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast-message {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 300px;
+            animation: slideIn 0.3s forwards;
+        }
+
+        /* ==========================================================================
+           10. KEYFRAME ANIMATIONS
+           ========================================================================== */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* ==========================================================================
+           11. MEDIA QUERIES & RESPONSIVE FIXES
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-features-list {
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .dashboard-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .lang-picker-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .file-row {
+                flex-wrap: wrap;
+            }
+
+            .console-output {
+                height: 300px;
+                font-size: 0.78rem;
+            }
+
+            .server-detail-tabs {
+                width: 100%;
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .btn-login-trigger {
+                display: none;
+            }
+
+            .call-btn-label { display: none; }
+
+            .hamburger-btn {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-box {
+                padding: 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .floating-card {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+       HEADER & NAVIGATION BAR
+       ========================================================================== -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar">
+                <!-- Brand Identity -->
+                <a href="#" class="brand-logo" onclick="switchView('landing')">
+                    <i class="fa-solid fa-server"></i>
+                    SHR <span>HOSTER</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <ul class="nav-links">
+                    <li><a href="#plans" class="nav-link"><i class="fa-solid fa-cubes"></i> Hosting Plans</a></li>
+                    <li><a href="#features" class="nav-link"><i class="fa-solid fa-bolt"></i> Features</a></li>
+                    <li><a href="#vps-calc" class="nav-link"><i class="fa-solid fa-calculator"></i> Cloud VPS</a></li>
+                    <li><a href="#faq" class="nav-link"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+                </ul>
+
+                <!-- Header CTA Controls -->
+                <div class="nav-actions">
+                    <button class="btn btn-warm btn-sm" onclick="toggleCallPanel()" title="আমাদের কল করুন">
+                        <i class="fa-solid fa-phone-volume"></i> <span class="call-btn-label">Call Us</span>
+                    </button>
+                    <button class="btn btn-secondary btn-sm btn-login-trigger" onclick="openModal('loginModal')">
+                        <i class="fa-solid fa-right-to-bracket"></i> Client Login
+                    </button>
+                    <button class="btn btn-primary btn-sm" onclick="openModal('registerModal')">
+                        Get Started
+                    </button>
+                    
+                    <!-- 3-Lines Hamburger Icon -->
+                    <div class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileDrawer()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer Overlay System -->
+    <div class="mobile-drawer-overlay" id="drawerOverlay" onclick="toggleMobileDrawer()"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div>
+            <div class="brand-logo" style="margin-bottom: 40px;">
+                <i class="fa-solid fa-server"></i>
+                SHR <span>HOSTER</span>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="#plans" class="mobile-nav-link" onclick="toggleMobileDrawer()"><i class="fa-solid fa-cubes"></i> Hosting Plans</a></li>
+                <li><a href="#features" class="mobile-nav-link" onclick="toggleMobileDrawer()"><i class="fa-solid fa-bolt"></i> Features</a></li>
+                <li><a href="#vps-calc" class="mobile-nav-link" onclick="toggleMobileDrawer()"><i class="fa-solid fa-calculator"></i> Custom VPS</a></li>
+                <li><a href="#faq" class="mobile-nav-link" onclick="toggleMobileDrawer()"><i class="fa-solid fa-circle-question"></i> FAQ Section</a></li>
+            </ul>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+            <button class="btn btn-warm btn-block" onclick="toggleMobileDrawer(); toggleCallPanel()">
+                <i class="fa-solid fa-phone-volume"></i> সাপোর্ট টিমকে কল করুন
+            </button>
+            <button class="btn btn-secondary btn-block" onclick="toggleMobileDrawer(); openModal('loginModal')">
+                <i class="fa-solid fa-right-to-bracket"></i> Login
+            </button>
+            <button class="btn btn-primary btn-block" onclick="toggleMobileDrawer(); openModal('registerModal')">
+                Register Account
+            </button>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       MAIN VIEW CONTAINER (LANDING PAGE)
+       ========================================================================== -->
+    <div id="landingView">
+        
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <i class="fa-solid fa-sparkles"></i> Next-Gen High Performance Infrastructure
+                        </div>
+                        <h1 class="hero-title">Ultra-Fast Enterprise <span>Cloud Hosting</span> Solutions</h1>
+                        <p class="hero-subtitle">Deploy high-performance NVMe cloud servers, web hosting, and Discord bot instances in seconds. Experience unmetered speed and unmatched 99.99% uptime reliability.</p>
+                        <div class="hero-cta">
+                            <a href="#plans" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Explore Hosting Plans</a>
+                            <button class="btn btn-secondary" onclick="openModal('loginModal')"><i class="fa-solid fa-gauge-high"></i> Live Demo Panel</button>
+                        </div>
+                        <ul class="hero-features-list">
+                            <li class="hero-feature-item"><i class="fa-solid fa-circle-check"></i> Instant Deployment</li>
+                            <li class="hero-feature-item"><i class="fa-solid fa-circle-check"></i> Free SSL & Anti-DDoS</li>
+                            <li class="hero-feature-item"><i class="fa-solid fa-circle-check"></i> 24/7 Expert Support</li>
+                        </ul>
+                    </div>
+
+                    <!-- Hero Visual Server Box -->
+                    <div class="hero-visual">
+                        <div class="server-card-preview">
+                            <div class="preview-header">
+                                <div class="dots">
+                                    <span class="dot dot-red"></span>
+                                    <span class="dot dot-yellow"></span>
+                                    <span class="dot dot-green"></span>
+                                </div>
+                                <span style="font-size: 0.8rem; font-family: var(--font-code); color: var(--text-muted);">root@shr-node-01:~</span>
+                            </div>
+                            <div class="terminal-code">
+                                <div><span class="cmd">$ shr-host deploy --instance ubuntu-22-lts --plan free</span></div>
+                                <div>[+] Allocating NVMe Storage Block... <span class="success">DONE</span></div>
+                                <div>[+] Provisioning 500MB RAM & 1 vCPU Core... <span class="success">DONE</span></div>
+                                <div>[+] Attaching DDoS Protected IPv4 Address... <span class="success">DONE</span></div>
+                                <div>[+] Generating SSL Certificates... <span class="success">DONE</span></div>
+                                <br>
+                                <div class="success">>> Server instance successfully deployed in 0.84 seconds!</div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Stat Cards -->
+                        <div class="floating-card floating-card-1">
+                            <i class="fa-solid fa-shield-halved" style="font-size: 1.5rem; color: var(--accent);"></i>
+                            <div>
+                                <div style="font-weight: 800; font-size: 0.9rem;">DDoS Shield</div>
+                                <div style="font-size: 0.75rem; color: var(--text-muted);">Active Protection</div>
+                            </div>
+                        </div>
+
+                        <div class="floating-card floating-card-2">
+                            <i class="fa-solid fa-bolt" style="font-size: 1.5rem; color: var(--warning);"></i>
+                            <div>
+                                <div style="font-weight: 800; font-size: 0.9rem;">10 Gbps Port</div>
+                                <div style="font-size: 0.75rem; color: var(--text-muted);">Ultra Low Latency</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOSTING PLANS SECTION -->
+        <section class="pricing-section section-padding" id="plans">
+            <div class="container">
+                <div class="section-title-wrapper">
+                    <span class="section-subtitle">Flexible Pricing Plans</span>
+                    <h2 class="section-title">Scalable Hosting Solutions Built For Every Project</h2>
+                    <p class="section-description">Choose from our entry-level free plan to enterprise dedicated clusters. Transparent pricing with no hidden renewal fees.</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- FREE PLAN CARD -->
+                    <div class="price-card">
+                        <div class="plan-header">
+                            <span class="plan-badge badge-free">Starter Choice</span>
+                            <h3 class="plan-name">Free Tier</h3>
+                            <div class="plan-price">
+                                <span class="price-currency">$</span>
+                                <span class="price-value">0</span>
+                                <span class="price-period">/forever</span>
+                            </div>
+                            <p class="plan-description">Perfect for testing, discord bots, and small static web pages.</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> <strong>500 MB</strong> DDR4 RAM</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> <strong>1 GB</strong> NVMe SSD Storage</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> <strong>1 vCPU</strong> Shared Core</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> 100 GB Bandwidth</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> Standard DDoS Defense</li>
+                            <li class="plan-feature-item disabled"><i class="fa-solid fa-xmark"></i> Dedicated IPv4 Address</li>
+                            <li class="plan-feature-item disabled"><i class="fa-solid fa-xmark"></i> Automated Daily Backups</li>
+                        </ul>
+                        <button class="btn btn-secondary btn-block" onclick="selectPlanAndRegister('free')">Deploy Free Server</button>
+                    </div>
+
+                    <!-- PRO PLAN CARD (FEATURED) -->
+                    <div class="price-card featured">
+                        <span class="featured-tag">Most Popular</span>
+                        <div class="plan-header">
+                            <span class="plan-badge badge-pro">High Speed</span>
+                            <h3 class="plan-name">Pro Cloud</h3>
+                            <div class="plan-price">
+                                <span class="price-currency">$</span>
+                                <span class="price-value">4.99</span>
+                                <span class="price-period">/month</span>
+                            </div>
+                            <p class="plan-description">Designed for growing websites, APIs, and active databases.</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> <strong>4 GB</strong> High-Speed RAM</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> <strong>40 GB</strong> NVMe SSD Storage</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> <strong>2 Dedicated</strong> CPU Cores</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> Unmetered Bandwidth</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> Enterprise DDoS Shield</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> Free SSL Certificates</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> Daily Automated Backups</li>
+                        </ul>
+                        <button class="btn btn-primary btn-block" onclick="selectPlanAndRegister('pro')">Select Pro Plan</button>
+                    </div>
+
+                    <!-- BUSINESS PLAN CARD -->
+                    <div class="price-card">
+                        <div class="plan-header">
+                            <span class="plan-badge badge-business">Maximum Power</span>
+                            <h3 class="plan-name">Ultimate Enterprise</h3>
+                            <div class="plan-price">
+                                <span class="price-currency">$</span>
+                                <span class="price-value">14.99</span>
+                                <span class="price-period">/month</span>
+                            </div>
+                            <p class="plan-description">Heavy computation workloads, SaaS systems & large communities.</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> <strong>16 GB</strong> ECC DDR4 RAM</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> <strong>160 GB</strong> Enterprise NVMe</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> <strong>6 Dedicated</strong> CPU Cores</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> Dedicated IPv4 Included</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> Real-time Security Suite</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> Priority 24/7 Phone & Ticket Support</li>
+                            <li class="plan-feature-item"><i class="fa-solid fa-check"></i> Instant Automated Failover</li>
+                        </ul>
+                        <button class="btn btn-secondary btn-block" onclick="selectPlanAndRegister('business')">Select Enterprise</button>
+                    </div>
+                </div>
+
+                <!-- DYNAMIC VPS PRICING CALCULATOR -->
+                <div class="calculator-box" id="vps-calc">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <h3 style="font-size: 1.5rem; font-weight: 800;">Custom Cloud VPS Estimator</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Drag the sliders to configure exact server resources dynamically.</p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; align-items: center;">
+                        <div>
+                            <!-- RAM Slider -->
+                            <div class="slider-control">
+                                <div class="slider-header">
+                                    <span>RAM Memory</span>
+                                    <span id="ramVal" style="color: var(--primary);">4 GB</span>
+                                </div>
+                                <input type="range" min="1" max="32" value="4" class="range-slider" id="ramRange" oninput="updateCalculator()">
+                            </div>
+
+                            <!-- CPU Slider -->
+                            <div class="slider-control">
+                                <div class="slider-header">
+                                    <span>vCPU Cores</span>
+                                    <span id="cpuVal" style="color: var(--primary);">2 Cores</span>
+                                </div>
+                                <input type="range" min="1" max="16" value="2" class="range-slider" id="cpuRange" oninput="updateCalculator()">
+                            </div>
+
+                            <!-- Storage Slider -->
+                            <div class="slider-control">
+                                <div class="slider-header">
+                                    <span>NVMe Storage</span>
+                                    <span id="storageVal" style="color: var(--primary);">50 GB</span>
+                                </div>
+                                <input type="range" min="10" max="500" step="10" value="50" class="range-slider" id="storageRange" oninput="updateCalculator()">
+                            </div>
+                        </div>
+
+                        <!-- Price Calculation Box -->
+                        <div style="background: var(--bg-body); padding: 30px; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border-color);">
+                            <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Estimated Cost</div>
+                            <div style="font-size: 3rem; font-weight: 800; color: var(--primary); margin: 10px 0;" id="calculatedPrice">$7.50</div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Billed monthly. Cancel anytime without penalty.</div>
+                            <button class="btn btn-primary btn-block" onclick="openModal('registerModal')">Deploy Custom Server</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section class="section-padding" id="features">
+            <div class="container">
+                <div class="section-title-wrapper">
+                    <span class="section-subtitle">Architected For Performance</span>
+                    <h2 class="section-title">Why Developers & Enterprise Choose SHR HOSTER</h2>
+                    <p class="section-description">Our hardware stack is tuned for maximum throughput, resilience, and automated server operations.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h3 class="feature-title">NVMe SSD Performance</h3>
+                        <p class="feature-desc">Read/Write speeds up to 10x faster than standard SATA SSDs. High IOPS guaranteed for heavy database usage.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-shield-virus"></i>
+                        </div>
+                        <h3 class="feature-title">1Tbps+ DDoS Mitigation</h3>
+                        <p class="feature-desc">Inline hardware scrubbing filtering all malicious traffic attacks in real-time without disrupting operations.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <h3 class="feature-title">Automated Daily Snapshots</h3>
+                        <p class="feature-desc">Rest easy knowing your server states and database files are safe with full automated cloud backup schedules.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h3 class="feature-title">Global Datacenter Network</h3>
+                        <p class="feature-desc">Deploy nodes across North America, Europe, and Asia-Pacific for minimum latency to your core audiences.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-terminal"></i>
+                        </div>
+                        <h3 class="feature-title">Root SSH & Web Terminal</h3>
+                        <p class="feature-desc">Full administrative privileges over your server instances with integrated web-based SSH terminal console access.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="feature-title">24/7 Expert Support</h3>
+                        <p class="feature-desc">Our experienced server engineers are available round the clock to resolve hardware or network issues instantly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="section-padding" id="faq" style="background: var(--bg-surface); border-top: 1px solid var(--border-color);">
+            <div class="container">
+                <div class="section-title-wrapper">
+                    <span class="section-subtitle">Got Questions?</span>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-description">Find quick answers to common questions about our platform and hosting services.</p>
+                </div>
+
+                <div class="faq-accordion">
+                    <div class="faq-item active">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span>How long does server provisioning take?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-body">
+                            All hosting servers, including Free Tier and Custom VPS instances, are deployed automatically right after order verification. Deployment usually completes within 30 seconds.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span>Is the Free Tier really free forever?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-body">
+                            Yes! Our Starter Free Tier with 500MB RAM and 1GB NVMe storage is 100% free with no hidden charges or required credit card details.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span>Can I upgrade my server hardware later?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-body">
+                            Absolutely. You can seamlessly scale your RAM, CPU cores, and NVMe storage up or down at any time directly from the SHR HOSTER client control panel.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span>What operating systems are supported?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-body">
+                            We support popular Linux distributions including Ubuntu, Debian, CentOS, AlmaLinux, Rocky Linux, as well as custom OS ISO uploads on our VPS plans.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ==========================================================================
+       AUTHENTICATED DASHBOARD VIEW (HIDDEN UNTIL LOGIN)
+       ========================================================================== -->
+    <div class="dashboard-section" id="dashboardView">
+        <div class="container">
+            <div class="dashboard-layout">
+                <!-- Dashboard Sidebar Navigation -->
+                <aside class="dashboard-sidebar">
+                    <div class="user-profile-summary">
+                        <div class="avatar-circle" id="dashAvatar">U</div>
+                        <h4 style="font-size: 1.1rem; font-weight: 800;" id="dashUserName">User Account</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);" id="dashUserEmail">user@example.com</span>
+                    </div>
+
+                    <ul class="dash-menu" id="dashMenu">
+                        <li class="dash-menu-item active" data-panel="overview"><a href="#" onclick="switchDashPanel('overview'); return false;"><i class="fa-solid fa-gauge"></i> Overview</a></li>
+                        <li class="dash-menu-item" data-panel="instances"><a href="#" onclick="switchDashPanel('instances'); return false;"><i class="fa-solid fa-server"></i> My Instances</a></li>
+                        <li class="dash-menu-item"><a href="#" onclick="showToast('এই ফিচারটি শীঘ্রই আসছে'); return false;"><i class="fa-solid fa-hard-drive"></i> Storage Blocks</a></li>
+                        <li class="dash-menu-item"><a href="#" onclick="showToast('এই ফিচারটি শীঘ্রই আসছে'); return false;"><i class="fa-solid fa-shield-halved"></i> Firewall & Security</a></li>
+                        <li class="dash-menu-item"><a href="#" onclick="showToast('এই ফিচারটি শীঘ্রই আসছে'); return false;"><i class="fa-solid fa-credit-card"></i> Billing & Invoices</a></li>
+                        <li class="dash-menu-item"><a href="#" onclick="showToast('এই ফিচারটি শীঘ্রই আসছে'); return false;"><i class="fa-solid fa-gear"></i> Account Settings</a></li>
+                        <li class="dash-menu-item" style="margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 10px;">
+                            <a href="#" onclick="handleLogout()" style="color: var(--danger);"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+                        </li>
+                    </ul>
+                </aside>
+
+                <!-- Main Control Panel Content Area -->
+                <main class="dash-content">
+
+                    <!-- ============ PANEL: OVERVIEW ============ -->
+                    <div class="dash-panel active" id="panel-overview">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                            <div>
+                                <h2 style="font-size: 1.8rem; font-weight: 800;">Server Control Center <span class="plan-pill" id="planPillOverview"><i class="fa-solid fa-star"></i> FREE PLAN</span></h2>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Manage active nodes, monitor hardware utilization, and control services.</p>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="switchDashPanel('instances')"><i class="fa-solid fa-plus"></i> Deploy New Instance</button>
+                        </div>
+
+                        <!-- Metrics Grid -->
+                        <div class="dash-metrics-grid">
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span>TOTAL RAM USAGE</span>
+                                    <i class="fa-solid fa-memory"></i>
+                                </div>
+                                <div class="metric-value" id="metricRam">0 MB / 500 MB</div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" id="metricRamBar" style="width: 4%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span>STORAGE ALLOCATION</span>
+                                    <i class="fa-solid fa-hard-drive"></i>
+                                </div>
+                                <div class="metric-value" id="metricStorage">0.00 GB / 1.0 GB</div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" id="metricStorageBar" style="width: 0%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span>CPU LOAD AVERAGE</span>
+                                    <i class="fa-solid fa-microchip"></i>
+                                </div>
+                                <div class="metric-value" id="metricCpu">0.0%</div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" id="metricCpuBar" style="width: 0%; background: var(--accent);"></div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span>ACTIVE INSTANCES</span>
+                                    <i class="fa-solid fa-network-wired"></i>
+                                </div>
+                                <div class="metric-value" id="metricActiveCount">0 Running</div>
+                                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 12px; font-weight: 700;" id="metricActiveNote">
+                                    <i class="fa-solid fa-circle"></i> No server deployed yet
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick summary list of servers on overview -->
+                        <div class="server-status-panel">
+                            <div class="panel-header">
+                                <div>
+                                    <h3 style="font-size: 1.25rem; font-weight: 800;">Your Servers</h3>
+                                    <p style="font-size: 0.85rem; color: var(--text-muted);">A quick snapshot of everything you've deployed.</p>
+                                </div>
+                            </div>
+                            <div id="overviewServerList"></div>
+                        </div>
+                    </div>
+
+                    <!-- ============ PANEL: MY INSTANCES (list + create) ============ -->
+                    <div class="dash-panel" id="panel-instances">
+                        <div class="dash-panel-heading">
+                            <div>
+                                <h2 style="font-size: 1.8rem; font-weight: 800;">My Instances</h2>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Free plan: 1 server maximum • Python runtime only. <a href="#plans" onclick="switchView('landing')" style="color: var(--primary); font-weight: 700;">Upgrade for more →</a></p>
+                            </div>
+                        </div>
+
+                        <div class="instances-grid" id="instancesGrid">
+                            <!-- Rendered dynamically by JS -->
+                        </div>
+                    </div>
+
+                    <!-- ============ PANEL: SERVER DETAIL (files / console / settings) ============ -->
+                    <div class="dash-panel" id="panel-server-detail">
+                        <a href="#" class="back-link" onclick="switchDashPanel('instances'); return false;"><i class="fa-solid fa-arrow-left"></i> Back to My Instances</a>
+
+                        <div class="server-detail-header">
+                            <div>
+                                <h3 style="font-size: 1.35rem; font-weight: 800;" id="detailServerName">server-name</h3>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-code);" id="detailServerMeta">Python • Node ID: --</p>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                <span class="status-badge status-active" id="detailStatusBadge"><i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i> Running</span>
+                                <button class="btn btn-secondary btn-sm" id="detailStartStopBtn" onclick="toggleServerPower()"><i class="fa-solid fa-power-off"></i> Stop</button>
+                                <button class="btn btn-secondary btn-sm" onclick="restartServer()"><i class="fa-solid fa-rotate-right"></i> Restart</button>
+                                <button class="btn btn-sm" style="background: #fee2e2; color: var(--danger);" onclick="confirmDeleteServer()"><i class="fa-solid fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+
+                        <div class="server-detail-tabs">
+                            <button class="server-tab-btn active" data-tab="files" onclick="switchServerTab('files')"><i class="fa-solid fa-folder-open"></i> Files</button>
+                            <button class="server-tab-btn" data-tab="console" onclick="switchServerTab('console')"><i class="fa-solid fa-terminal"></i> Live Console</button>
+                            <button class="server-tab-btn" data-tab="deploy" onclick="switchServerTab('deploy')"><i class="fa-solid fa-rocket"></i> Deploy Config</button>
+                            <button class="server-tab-btn" data-tab="settings" onclick="switchServerTab('settings')"><i class="fa-solid fa-gear"></i> Settings</button>
+                        </div>
+
+                        <!-- FILES TAB -->
+                        <div class="server-tab-panel active" id="tab-files">
+                            <div class="file-manager-box">
+                                <div class="file-manager-toolbar">
+                                    <h4 style="font-weight: 800;">Uploaded Files</h4>
+                                    <div style="display:flex; gap:10px;">
+                                        <input type="file" id="fileUploadInput" accept=".py,.txt,.json,.env,.md,.cfg,.ini" multiple style="display:none;" onchange="handleFileUpload(this.files)">
+                                        <button class="btn btn-primary btn-sm" onclick="document.getElementById('fileUploadInput').click()"><i class="fa-solid fa-upload"></i> Upload File</button>
+                                    </div>
+                                </div>
+
+                                <div class="file-drop-zone" id="fileDropZone" onclick="document.getElementById('fileUploadInput').click()">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <strong>ফাইল টেনে এখানে ছাড়ুন অথবা ক্লিক করে বাছাই করুন</strong>
+                                    <div style="font-size: 0.78rem; margin-top: 4px;">.py, .txt, .json, .env, .md সাপোর্টেড — ফ্রি প্ল্যানে প্রতি ফাইল সর্বোচ্চ 1MB</div>
+                                </div>
+
+                                <div class="file-list" id="fileList"></div>
+                            </div>
+                        </div>
+
+                        <!-- CONSOLE TAB -->
+                        <div class="server-tab-panel" id="tab-console">
+                            <div class="console-box">
+                                <div class="console-toolbar">
+                                    <div style="display:flex; gap:10px; align-items:center; flex-wrap: wrap;">
+                                        <select class="console-select" id="mainFileSelect"></select>
+                                        <button class="btn btn-accent btn-sm" onclick="runServerScript()" id="runBtn"><i class="fa-solid fa-play"></i> Run</button>
+                                        <button class="btn btn-secondary btn-sm" onclick="stopServerScript()" id="stopScriptBtn" style="display:none;"><i class="fa-solid fa-stop"></i> Stop Script</button>
+                                    </div>
+                                    <button class="btn btn-secondary btn-sm" onclick="clearConsole()"><i class="fa-solid fa-broom"></i> Clear</button>
+                                </div>
+                                <div class="console-output" id="consoleOutput"></div>
+                            </div>
+                        </div>
+
+                        <!-- DEPLOY CONFIG TAB: Startup Command + Requirements.txt Installer -->
+                        <div class="server-tab-panel" id="tab-deploy">
+                            <div class="deploy-grid">
+
+                                <!-- Startup Command Card -->
+                                <div class="deploy-card">
+                                    <div class="deploy-card-header">
+                                        <div class="deploy-card-icon icon-purple"><i class="fa-solid fa-terminal"></i></div>
+                                        <div class="deploy-card-title">Startup Command</div>
+                                    </div>
+                                    <p class="deploy-card-desc">সার্ভার Run করলে ঠিক কোন কমান্ডটি এক্সিকিউট হবে তা এখানে নির্ধারণ করুন। ইচ্ছেমতো এডিট করতে পারবেন।</p>
+
+                                    <div class="command-input-row">
+                                        <div class="input-wrapper">
+                                            <i class="fa-solid fa-angle-right"></i>
+                                            <input type="text" class="form-input" id="startupCommandInput" placeholder="python3 main.py" spellcheck="false">
+                                        </div>
+                                        <button class="btn btn-primary btn-sm" onclick="saveStartupCommand()"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                                    </div>
+
+                                    <div class="deploy-actions">
+                                        <span class="quick-cmd-chip" onclick="applyQuickCommand('python3 main.py')"><i class="fa-brands fa-python"></i> python3 main.py</span>
+                                        <span class="quick-cmd-chip" onclick="applyQuickCommand('python3 bot.py')"><i class="fa-brands fa-python"></i> python3 bot.py</span>
+                                        <span class="quick-cmd-chip" onclick="applyQuickCommand('node index.js')"><i class="fa-brands fa-node"></i> node index.js</span>
+                                        <span class="quick-cmd-chip" onclick="applyQuickCommand('pip install -r requirements.txt &amp;&amp; python3 main.py')"><i class="fa-solid fa-boxes-stacked"></i> install + run</span>
+                                    </div>
+
+                                    <div class="deploy-hint">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                        <span>ডিফল্টভাবে <strong>Run</strong> বাটনে ক্লিক করলে Files ট্যাব থেকে বাছাই করা মেইন ফাইলটি চলবে। এখানে কাস্টম স্টার্টআপ কমান্ড সেট করলে সেটিই ব্যবহার হবে।</span>
+                                    </div>
+                                </div>
+
+                                <!-- Requirements.txt Installer Card -->
+                                <div class="deploy-card">
+                                    <div class="deploy-card-header">
+                                        <div class="deploy-card-icon icon-green"><i class="fa-solid fa-boxes-stacked"></i></div>
+                                        <div class="deploy-card-title">requirements.txt — Dependency Installer</div>
+                                    </div>
+                                    <p class="deploy-card-desc">আপনার বট বা অ্যাপের জন্য প্রয়োজনীয় প্যাকেজগুলো এখানে লিখুন (এক লাইনে একটি করে), তারপর Install চাপুন।</p>
+
+                                    <textarea class="requirements-textarea" id="requirementsTextarea" spellcheck="false" placeholder="discord.py&#10;python-dotenv&#10;requests&#10;aiohttp"></textarea>
+
+                                    <div class="deploy-actions">
+                                        <button class="btn btn-accent btn-sm" onclick="installRequirements()" id="installReqBtn"><i class="fa-solid fa-download"></i> Install Dependencies</button>
+                                        <button class="btn btn-secondary btn-sm" onclick="saveRequirements()"><i class="fa-solid fa-floppy-disk"></i> Save requirements.txt</button>
+                                    </div>
+
+                                    <div class="deploy-hint">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                        <span>Install চাপলে Live Console-এ গিয়ে <strong>pip install -r requirements.txt</strong> এর মতো রিয়েল-টাইম প্রসেস লগ দেখতে পাবেন।</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- SETTINGS TAB -->
+                        <div class="server-tab-panel" id="tab-settings">
+                            <div class="file-manager-box">
+                                <div class="form-group">
+                                    <label class="form-label">Server Name</label>
+                                    <div class="input-wrapper">
+                                        <i class="fa-solid fa-server"></i>
+                                        <input type="text" class="form-input" id="settingsServerName">
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary btn-sm" onclick="saveServerSettings()"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>
+
+                                <div style="margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+                                    <h4 style="color: var(--danger); font-weight: 800; margin-bottom: 10px;">Danger Zone</h4>
+                                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">সার্ভার ডিলিট করলে সমস্ত ফাইল ও কনসোল লগ স্থায়ীভাবে মুছে যাবে। এটি আর ফিরিয়ে আনা যাবে না।</p>
+                                    <button class="btn btn-sm" style="background: #fee2e2; color: var(--danger);" onclick="confirmDeleteServer()"><i class="fa-solid fa-trash"></i> Delete This Server</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       CREATE SERVER MODAL
+       ========================================================================== -->
+    <div class="modal-backdrop" id="createServerModal">
+        <div class="auth-card server-create-card">
+            <button class="modal-close-btn" onclick="closeModal('createServerModal')">&times;</button>
+            <div class="auth-header">
+                <h3 class="auth-title"><i class="fa-solid fa-server" style="color: var(--primary);"></i> নতুন সার্ভার তৈরি করুন</h3>
+                <p class="auth-subtitle">সার্ভারের নাম দিন এবং একটি ল্যাঙ্গুয়েজ বাছাই করুন</p>
+            </div>
+
+            <form onsubmit="handleCreateServer(event)">
+                <div class="form-group">
+                    <label class="form-label" for="newServerName">Server Name</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-tag"></i>
+                        <input type="text" id="newServerName" class="form-input" placeholder="e.g. my-python-bot" required maxlength="32">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Server Language</label>
+                    <div class="lang-picker-grid" id="langPickerGrid">
+                        <div class="lang-option selected" data-lang="python" onclick="selectLang('python')">
+                            <i class="fa-brands fa-python lang-icon"></i> Python 3.11
+                        </div>
+                        <div class="lang-option locked" data-lang="nodejs" onclick="selectLang('nodejs')">
+                            <i class="fa-brands fa-node lang-icon"></i> Node.js <span class="lang-lock-tag">PRO</span>
+                        </div>
+                        <div class="lang-option locked" data-lang="php" onclick="selectLang('php')">
+                            <i class="fa-brands fa-php lang-icon"></i> PHP 8 <span class="lang-lock-tag">PRO</span>
+                        </div>
+                        <div class="lang-option locked" data-lang="java" onclick="selectLang('java')">
+                            <i class="fa-brands fa-java lang-icon"></i> Java 17 <span class="lang-lock-tag">PRO</span>
+                        </div>
+                    </div>
+                    <div class="plan-limit-note" id="planLimitNote">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>ফ্রি প্ল্যানে আপনি সর্বোচ্চ <strong>১টি সার্ভার</strong> বানাতে পারবেন, শুধুমাত্র <strong>Python</strong> ভাষায়।</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" style="margin-top: 8px;"><i class="fa-solid fa-bolt"></i> Create & Deploy Server</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       DELETE CONFIRMATION MODAL
+       ========================================================================== -->
+    <div class="modal-backdrop" id="confirmDeleteModal">
+        <div class="auth-card confirm-card">
+            <button class="modal-close-btn" onclick="closeModal('confirmDeleteModal')">&times;</button>
+            <div class="confirm-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <h3 class="auth-title" style="font-size: 1.35rem;">সার্ভার ডিলিট করবেন?</h3>
+            <p class="auth-subtitle" style="margin-bottom: 24px;">এই কাজটি ফিরিয়ে আনা যাবে না। সব ফাইল ও লগ মুছে যাবে।</p>
+            <div style="display:flex; gap: 12px;">
+                <button class="btn btn-secondary btn-block" onclick="closeModal('confirmDeleteModal')">Cancel</button>
+                <button class="btn btn-block" style="background: var(--danger); color: #fff;" onclick="deleteServerConfirmed()">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       AUTHENTICATION MODAL SYSTEM
+       ========================================================================== -->
+    
+    <!-- LOGIN MODAL -->
+    <div class="modal-backdrop" id="loginModal">
+        <div class="auth-card">
+            <button class="modal-close-btn" onclick="closeModal('loginModal')">&times;</button>
+            <div class="auth-header">
+                <h3 class="auth-title">Welcome Back</h3>
+                <p class="auth-subtitle">Log in to your SHR HOSTER account panel</p>
+            </div>
+            
+            <form onsubmit="handleLoginSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label" for="loginEmail">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="loginEmail" class="form-input" placeholder="name@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="loginPassword">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <label class="remember-me">
+                        <input type="checkbox" style="accent-color: var(--primary);"> Remember credentials
+                    </label>
+                    <a href="#" class="forgot-link" onclick="showToast('Password reset link sent to email')">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Sign In To Dashboard</button>
+            </form>
+
+            <div class="auth-switch">
+                Don't have an account? <a href="#" onclick="switchAuthModal('loginModal', 'registerModal')">Create Account</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- REGISTER MODAL -->
+    <div class="modal-backdrop" id="registerModal">
+        <div class="auth-card">
+            <button class="modal-close-btn" onclick="closeModal('registerModal')">&times;</button>
+            <div class="auth-header">
+                <h3 class="auth-title">Create Account</h3>
+                <p class="auth-subtitle">Get started with our Free Tier in seconds</p>
+            </div>
+            
+            <form onsubmit="handleRegisterSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label" for="regName">Full Name</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="regName" class="form-input" placeholder="John Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="regEmail">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="regEmail" class="form-input" placeholder="name@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="regPassword">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="regPassword" class="form-input" placeholder="Create strong password" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Create Free Account</button>
+            </form>
+
+            <div class="auth-switch">
+                Already registered? <a href="#" onclick="switchAuthModal('registerModal', 'loginModal')">Sign In</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER LAYER -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ==========================================================================
+       FOOTER SECTION
+       ========================================================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="brand-logo">
+                        <i class="fa-solid fa-server"></i>
+                        SHR <span>HOSTER</span>
+                    </a>
+                    <p>Enterprise-grade cloud hosting platform built for web applications, databases, and continuous software deployments.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-column-title">Hosting Services</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#plans" class="footer-link">Free Tier Cloud</a></li>
+                        <li><a href="#plans" class="footer-link">Pro Web Hosting</a></li>
+                        <li><a href="#vps-calc" class="footer-link">Custom VPS Node</a></li>
+                        <li><a href="#" class="footer-link">Discord Bot Hosting</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-column-title">Platform Infrastructure</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#" class="footer-link">Datacenter Locations</a></li>
+                        <li><a href="#" class="footer-link">Network Speed Test</a></li>
+                        <li><a href="#" class="footer-link">Anti-DDoS Shield</a></li>
+                        <li><a href="#" class="footer-link">System Status</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-column-title">Support & Legal</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#faq" class="footer-link">Knowledgebase FAQ</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link" onclick="toggleCallPanel(); return false;">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 SHR HOSTER Technologies Inc. All rights reserved.</div>
+                <div>Designed & Engineered with pure web technology performance.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+       FLOATING CALL / SUPPORT WIDGET — fully functional (tel: / wa.me / mailto)
+       ========================================================================== -->
+    <div class="call-panel" id="callPanel">
+        <div class="call-panel-header">
+            <div class="avatar-circle"><i class="fa-solid fa-headset"></i></div>
+            <div>
+                <div style="font-weight:800; font-size:1rem;">সাপোর্টের সাথে কথা বলুন</div>
+                <div style="font-size:0.78rem; color: var(--text-muted);">সাধারণত ৫ মিনিটের মধ্যে রিপ্লাই</div>
+            </div>
+        </div>
+        <a href="#" class="call-option opt-call" onclick="callSupportNow(); return false;">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+                <div>এখনই কল করুন</div>
+                <div style="font-size:0.72rem; color: var(--text-muted); font-weight:500;" id="callPanelPhoneLabel">+880 1XXX-XXXXXX</div>
+            </div>
+        </a>
+        <a href="#" class="call-option opt-whatsapp" onclick="openWhatsAppSupport(); return false;">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div>
+                <div>WhatsApp-এ মেসেজ করুন</div>
+                <div style="font-size:0.72rem; color: var(--text-muted); font-weight:500;">তাৎক্ষণিক রিপ্লাই</div>
+            </div>
+        </a>
+        <a href="#" class="call-option opt-email" onclick="emailSupport(); return false;">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+                <div>ইমেইল করুন</div>
+                <div style="font-size:0.72rem; color: var(--text-muted); font-weight:500;" id="callPanelEmailLabel">support@shrhoster.com</div>
+            </div>
+        </a>
+    </div>
+    <div class="call-fab" id="callFab" onclick="toggleCallPanel()" title="কল / সাপোর্ট">
+        <i class="fa-solid fa-phone-volume" id="callFabIcon"></i>
+    </div>
+
+    <!-- ==========================================================================
+       JAVASCRIPT LOGIC ENGINE
+       ========================================================================== -->
+    <script>
+        /* ==========================================================================
+           SUPPORT CONTACT CONFIGURATION
+           এডিট করার জায়গা: আপনার আসল ফোন নাম্বার, WhatsApp নাম্বার ও ইমেইল বসান।
+           ফরম্যাট: দেশের কোড সহ, কোনো '+', স্পেস বা ড্যাশ ছাড়া (শুধু WhatsApp নাম্বারে)।
+           ========================================================================== */
+        const SUPPORT_PHONE_DISPLAY = '+880 1XXX-XXXXXX';   // স্ক্রিনে যা দেখাবে
+        const SUPPORT_PHONE_TEL     = '+8801XXXXXXXXX';      // tel: লিংকে যা ব্যবহার হবে
+        const SUPPORT_WHATSAPP      = '8801XXXXXXXXX';       // শুধু সংখ্যা, দেশের কোড সহ
+        const SUPPORT_EMAIL         = 'support@shrhoster.com';
+
+        /* --- Mobile Navigation Drawer System --- */
+        function toggleMobileDrawer() {
+            const drawer = document.getElementById('mobileDrawer');
+            const overlay = document.getElementById('drawerOverlay');
+            const hamburger = document.getElementById('hamburgerBtn');
+            
+            drawer.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        /* --- Modal Control System --- */
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        function switchAuthModal(closeId, openId) {
+            closeModal(closeId);
+            setTimeout(() => {
+                openModal(openId);
+            }, 200);
+        }
+
+        // Close modal when user clicks outside the modal card
+        window.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal-backdrop')) {
+                e.target.classList.remove('active');
+            }
+        });
+
+        /* --- Dynamic Custom VPS Estimator Calculator --- */
+        function updateCalculator() {
+            const ram = parseInt(document.getElementById('ramRange').value);
+            const cpu = parseInt(document.getElementById('cpuRange').value);
+            const storage = parseInt(document.getElementById('storageRange').value);
+
+            document.getElementById('ramVal').innerText = ram + ' GB';
+            document.getElementById('cpuVal').innerText = cpu + (cpu > 1 ? ' Cores' : ' Core');
+            document.getElementById('storageVal').innerText = storage + ' GB';
+
+            // Pricing algorithm formula
+            const totalPrice = (ram * 1.2) + (cpu * 2.0) + (storage * 0.05);
+            document.getElementById('calculatedPrice').innerText = '$' + totalPrice.toFixed(2);
+        }
+
+        /* --- FAQ Accordion Interactive System --- */
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Toggle selected item
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        /* --- Toast Notification System --- */
+        function showToast(message) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast-message';
+            toast.innerHTML = `<i class="fa-solid fa-circle-info" style="color: var(--primary);"></i> <span>${message}</span>`;
+            
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(100%)';
+                toast.style.transition = 'all 0.3s ease';
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        /* --- Auth & View State Controller --- */
+        let pendingPlanSelection = 'free';
+        let currentPlan = 'free'; // 'free' | 'pro' | 'business'
+
+        function selectPlanAndRegister(plan) {
+            pendingPlanSelection = plan;
+            openModal('registerModal');
+        }
+
+        function handleLoginSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            
+            closeModal('loginModal');
+            showToast('Authentication successful!');
+            
+            // Populate dashboard details
+            document.getElementById('dashUserEmail').innerText = email;
+            document.getElementById('dashUserName').innerText = email.split('@')[0];
+            document.getElementById('dashAvatar').innerText = email.charAt(0).toUpperCase();
+
+            currentPlan = pendingPlanSelection || 'free';
+            initDashboard();
+
+            // Switch layout view
+            switchView('dashboard');
+        }
+
+        function handleRegisterSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+
+            closeModal('registerModal');
+            showToast('Account created! Logging in...');
+
+            document.getElementById('dashUserEmail').innerText = email;
+            document.getElementById('dashUserName').innerText = name;
+            document.getElementById('dashAvatar').innerText = name.charAt(0).toUpperCase();
+
+            currentPlan = pendingPlanSelection || 'free';
+            initDashboard();
+
+            switchView('dashboard');
+
+            // First-time free users are guided straight into creating their server
+            if (currentPlan === 'free' && servers.length === 0) {
+                setTimeout(() => {
+                    switchDashPanel('instances');
+                    openCreateServerModal();
+                }, 500);
+            }
+        }
+
+        function handleLogout() {
+            showToast('Logged out of session.');
+            switchView('landing');
+        }
+
+        function switchView(viewName) {
+            const landingView = document.getElementById('landingView');
+            const dashboardView = document.getElementById('dashboardView');
+
+            if (viewName === 'dashboard') {
+                landingView.style.display = 'none';
+                dashboardView.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                landingView.style.display = 'block';
+                dashboardView.style.display = 'none';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        /* ==========================================================================
+           SERVER PROVISIONING ENGINE, FILE MANAGER & LIVE CONSOLE SIMULATOR
+           ========================================================================== */
+
+        const PLAN_LIMITS = {
+            free:     { maxServers: 1,  langs: ['python'],                         ramMB: 500,   storageGB: 1,   label: 'FREE PLAN',       icon: 'fa-star' },
+            pro:      { maxServers: 5,  langs: ['python', 'nodejs', 'php', 'java'], ramMB: 4096,  storageGB: 40,  label: 'PRO PLAN',        icon: 'fa-bolt' },
+            business: { maxServers: 20, langs: ['python', 'nodejs', 'php', 'java'], ramMB: 16384, storageGB: 160, label: 'ENTERPRISE PLAN', icon: 'fa-crown' }
+        };
+
+        const LANG_META = {
+            python: { label: 'Python 3.11', icon: 'fa-brands fa-python', ext: '.py',   defaultCmd: 'python3 main.py',  defaultReq: 'requests\npython-dotenv' },
+            nodejs: { label: 'Node.js 20',  icon: 'fa-brands fa-node',   ext: '.js',   defaultCmd: 'node index.js',    defaultReq: 'express\ndotenv' },
+            php:    { label: 'PHP 8.2',     icon: 'fa-brands fa-php',    ext: '.php',  defaultCmd: 'php -S 0.0.0.0:8080', defaultReq: '' },
+            java:   { label: 'Java 17',     icon: 'fa-brands fa-java',   ext: '.java', defaultCmd: 'java -jar app.jar', defaultReq: '' }
+        };
+
+        let servers = [];
+        let serverIdCounter = 1;
+        let activeServerId = null;
+        let selectedNewLang = 'python';
+        let consoleHeartbeatTimer = null;
+        let consoleRunTimers = [];
+        let scriptRunning = false;
+
+        function initDashboard() {
+            renderInstances();
+            renderOverviewServerList();
+            updateOverviewMetrics();
+            updatePlanPill();
+            switchDashPanel('overview');
+        }
+
+        function updatePlanPill() {
+            const plan = PLAN_LIMITS[currentPlan];
+            const pill = document.getElementById('planPillOverview');
+            if (pill) {
+                pill.innerHTML = `<i class="fa-solid ${plan.icon}"></i> ${plan.label}`;
+            }
+        }
+
+        /* --- Dashboard panel switching (Overview / Instances / Server Detail) --- */
+        function switchDashPanel(panelName) {
+            document.querySelectorAll('.dash-panel').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById('panel-' + panelName);
+            if (target) target.classList.add('active');
+
+            document.querySelectorAll('#dashMenu .dash-menu-item').forEach(li => li.classList.remove('active'));
+            const menuKey = (panelName === 'server-detail') ? 'instances' : panelName;
+            const menuItem = document.querySelector(`#dashMenu .dash-menu-item[data-panel="${menuKey}"]`);
+            if (menuItem) menuItem.classList.add('active');
+
+            if (panelName === 'instances') renderInstances();
+            if (panelName === 'overview') { renderOverviewServerList(); updateOverviewMetrics(); }
+
+            document.querySelector('.dash-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        /* --- Create Server Modal --- */
+        function openCreateServerModal() {
+            const plan = PLAN_LIMITS[currentPlan];
+            if (servers.length >= plan.maxServers) {
+                showToast(`আপনার ${plan.label} এ সর্বোচ্চ ${plan.maxServers}টি সার্ভার তৈরির সীমা রয়েছে। আপগ্রেড করুন আরও সার্ভারের জন্য।`);
+                return;
+            }
+            document.getElementById('newServerName').value = '';
+            selectedNewLang = plan.langs.includes('python') ? 'python' : plan.langs[0];
+            refreshLangPickerLocks();
+            openModal('createServerModal');
+        }
+
+        function refreshLangPickerLocks() {
+            const plan = PLAN_LIMITS[currentPlan];
+            document.querySelectorAll('#langPickerGrid .lang-option').forEach(opt => {
+                const lang = opt.getAttribute('data-lang');
+                const locked = !plan.langs.includes(lang);
+                opt.classList.toggle('locked', locked);
+                opt.classList.toggle('selected', lang === selectedNewLang && !locked);
+            });
+            const note = document.getElementById('planLimitNote');
+            note.innerHTML = `<i class="fa-solid fa-circle-info"></i>
+                <span>${currentPlan === 'free'
+                    ? 'ফ্রি প্ল্যানে আপনি সর্বোচ্চ <strong>১টি সার্ভার</strong> বানাতে পারবেন, শুধুমাত্র <strong>Python</strong> ভাষায়।'
+                    : `আপনার ${plan.label} প্ল্যানে সর্বোচ্চ <strong>${plan.maxServers}টি সার্ভার</strong> এবং সবগুলো ল্যাঙ্গুয়েজ উপলব্ধ।`}</span>`;
+        }
+
+        function selectLang(lang) {
+            const plan = PLAN_LIMITS[currentPlan];
+            if (!plan.langs.includes(lang)) {
+                showToast('এই ল্যাঙ্গুয়েজ শুধুমাত্র Pro / Enterprise প্ল্যানে আনলক করা যাবে।');
+                return;
+            }
+            selectedNewLang = lang;
+            refreshLangPickerLocks();
+        }
+
+        function handleCreateServer(e) {
+            e.preventDefault();
+            const plan = PLAN_LIMITS[currentPlan];
+            const name = document.getElementById('newServerName').value.trim();
+
+            if (servers.length >= plan.maxServers) {
+                showToast(`সর্বোচ্চ সার্ভার সীমায় পৌঁছে গেছেন (${plan.maxServers})।`);
+                return;
+            }
+            if (!plan.langs.includes(selectedNewLang)) {
+                showToast('বাছাইকৃত ল্যাঙ্গুয়েজটি আপনার প্ল্যানে উপলব্ধ নয়।');
+                return;
+            }
+            if (servers.some(s => s.name.toLowerCase() === name.toLowerCase())) {
+                showToast('এই নামে ইতিমধ্যে একটি সার্ভার আছে, অন্য নাম ব্যবহার করুন।');
+                return;
+            }
+
+            const server = {
+                id: 'srv_' + (serverIdCounter++),
+                name: name,
+                lang: selectedNewLang,
+                status: 'provisioning',
+                createdAt: new Date(),
+                files: [],
+                logs: [],
+                ramMB: Math.floor(Math.random() * 40) + 60,
+                cpu: (Math.random() * 4 + 1).toFixed(1),
+                nodeId: 'node-' + Math.random().toString(36).substring(2, 8),
+                startupCommand: LANG_META[selectedNewLang].defaultCmd || 'python3 main.py',
+                requirements: LANG_META[selectedNewLang].defaultReq || ''
+            };
+            servers.push(server);
+
+            closeModal('createServerModal');
+            showToast('সার্ভার তৈরি হচ্ছে...');
+            renderInstances();
+            openServerDetail(server.id);
+
+            appendConsoleLine(server.id, `[SYSTEM] Provisioning new ${LANG_META[server.lang].label} instance "${server.name}"...`, 'log-muted');
+            appendConsoleLine(server.id, `[SYSTEM] Allocating container on ${server.nodeId}...`, 'log-muted');
+
+            setTimeout(() => {
+                server.status = 'running';
+                appendConsoleLine(server.id, `[SUCCESS] Server "${server.name}" is now online and ready.`, 'log-success');
+                appendConsoleLine(server.id, `[INFO] Upload a ${LANG_META[server.lang].ext} file from the Files tab, then hit Run.`, 'log-info');
+                renderInstances();
+                renderOverviewServerList();
+                updateOverviewMetrics();
+                if (activeServerId === server.id) refreshServerDetailHeader();
+            }, 1600);
+        }
+
+        /* --- Instances grid rendering --- */
+        function renderInstances() {
+            const grid = document.getElementById('instancesGrid');
+            if (!grid) return;
+            const plan = PLAN_LIMITS[currentPlan];
+            let html = '';
+
+            servers.forEach(server => {
+                const meta = LANG_META[server.lang];
+                const statusClass = server.status === 'running' ? 'status-active' : (server.status === 'provisioning' ? 'status-provisioning' : 'status-stopped');
+                const statusLabel = server.status === 'running' ? 'Running' : (server.status === 'provisioning' ? 'Provisioning' : 'Stopped');
+                html += `
+                <div class="instance-card" onclick="openServerDetail('${server.id}')">
+                    <div class="instance-card-top">
+                        <div class="instance-icon-wrap"><i class="${meta.icon}"></i></div>
+                        <span class="status-badge ${statusClass}"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> ${statusLabel}</span>
+                    </div>
+                    <div>
+                        <div class="instance-name">${escapeHtml(server.name)}</div>
+                        <div class="instance-meta">${meta.label} • ${server.files.length} file(s)</div>
+                    </div>
+                    <div class="instance-card-footer">
+                        <span><i class="fa-solid fa-microchip"></i> ${server.cpu}% CPU</span>
+                        <span><i class="fa-solid fa-memory"></i> ${server.ramMB}MB RAM</span>
+                    </div>
+                </div>`;
+            });
+
+            if (servers.length < plan.maxServers) {
+                html += `
+                <div class="create-instance-card" onclick="openCreateServerModal()">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <strong>Create New Server</strong>
+                    <span style="font-size:0.78rem;">${plan.maxServers - servers.length} slot(s) remaining</span>
+                </div>`;
+            } else {
+                html += `
+                <div class="create-instance-card" style="cursor:default; opacity:0.7;">
+                    <i class="fa-solid fa-lock"></i>
+                    <strong>Server Limit Reached</strong>
+                    <span style="font-size:0.78rem;">Upgrade your plan for more servers</span>
+                </div>`;
+            }
+
+            grid.innerHTML = html;
+        }
+
+        function renderOverviewServerList() {
+            const container = document.getElementById('overviewServerList');
+            if (!container) return;
+            if (servers.length === 0) {
+                container.innerHTML = `<p style="color: var(--text-muted); font-size: 0.9rem; padding: 10px 0;">কোনো সার্ভার নেই। <a href="#" onclick="switchDashPanel('instances'); return false;" style="color: var(--primary); font-weight:700;">এখনই একটি তৈরি করুন</a></p>`;
+                return;
+            }
+            let html = '';
+            servers.forEach(server => {
+                const meta = LANG_META[server.lang];
+                const statusClass = server.status === 'running' ? 'status-active' : (server.status === 'provisioning' ? 'status-provisioning' : 'status-stopped');
+                const statusLabel = server.status === 'running' ? 'Running' : (server.status === 'provisioning' ? 'Provisioning' : 'Stopped');
+                html += `
+                <div style="display:flex; justify-content:space-between; align-items:center; padding: 14px 0; border-bottom: 1px solid var(--border-color); flex-wrap: wrap; gap: 10px;">
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <div class="instance-icon-wrap" style="width:36px;height:36px;font-size:1rem;"><i class="${meta.icon}"></i></div>
+                        <div>
+                            <div style="font-weight:700;">${escapeHtml(server.name)}</div>
+                            <div style="font-size:0.78rem; color: var(--text-muted); font-family: var(--font-code);">${meta.label} • ${server.nodeId}</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span class="status-badge ${statusClass}"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> ${statusLabel}</span>
+                        <button class="btn btn-secondary btn-sm" onclick="openServerDetail('${server.id}')">Manage</button>
+                    </div>
+                </div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        function updateOverviewMetrics() {
+            const plan = PLAN_LIMITS[currentPlan];
+            const totalRam = servers.reduce((sum, s) => sum + s.ramMB, 0);
+            const totalStorageBytes = servers.reduce((sum, s) => sum + s.files.reduce((fs, f) => fs + f.size, 0), 0);
+            const totalStorageGB = totalStorageBytes / (1024 * 1024 * 1024);
+            const avgCpu = servers.length ? (servers.reduce((sum, s) => sum + parseFloat(s.cpu), 0) / servers.length) : 0;
+            const runningCount = servers.filter(s => s.status === 'running').length;
+
+            document.getElementById('metricRam').innerText = `${totalRam} MB / ${plan.ramMB} MB`;
+            document.getElementById('metricRamBar').style.width = Math.min(100, (totalRam / plan.ramMB) * 100) + '%';
+
+            document.getElementById('metricStorage').innerText = `${totalStorageGB.toFixed(2)} GB / ${plan.storageGB}.0 GB`;
+            document.getElementById('metricStorageBar').style.width = Math.min(100, (totalStorageGB / plan.storageGB) * 100) + '%';
+
+            document.getElementById('metricCpu').innerText = `${avgCpu.toFixed(1)}%`;
+            document.getElementById('metricCpuBar').style.width = Math.min(100, avgCpu) + '%';
+
+            document.getElementById('metricActiveCount').innerText = `${runningCount} Running`;
+            document.getElementById('metricActiveNote').innerHTML = servers.length
+                ? `<i class="fa-solid fa-circle" style="color: var(--accent);"></i> ${servers.length} total instance(s)`
+                : `<i class="fa-solid fa-circle"></i> No server deployed yet`;
+        }
+
+        /* --- Server Detail view --- */
+        function openServerDetail(id) {
+            activeServerId = id;
+            refreshServerDetailHeader();
+            renderFileList();
+            renderMainFileSelect();
+            renderConsole();
+            switchServerTab('files');
+            switchDashPanel('server-detail');
+        }
+
+        function getActiveServer() {
+            return servers.find(s => s.id === activeServerId);
+        }
+
+        function refreshServerDetailHeader() {
+            const server = getActiveServer();
+            if (!server) return;
+            const meta = LANG_META[server.lang];
+            document.getElementById('detailServerName').innerText = server.name;
+            document.getElementById('detailServerMeta').innerText = `${meta.label} • Node ID: ${server.nodeId}`;
+            document.getElementById('settingsServerName').value = server.name;
+
+            const startupInput = document.getElementById('startupCommandInput');
+            const reqTextarea = document.getElementById('requirementsTextarea');
+            if (startupInput) startupInput.value = server.startupCommand || meta.defaultCmd || '';
+            if (reqTextarea) reqTextarea.value = server.requirements || '';
+
+            const badge = document.getElementById('detailStatusBadge');
+            const startStopBtn = document.getElementById('detailStartStopBtn');
+            if (server.status === 'running') {
+                badge.className = 'status-badge status-active';
+                badge.innerHTML = '<i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Running';
+                startStopBtn.innerHTML = '<i class="fa-solid fa-power-off"></i> Stop';
+            } else if (server.status === 'provisioning') {
+                badge.className = 'status-badge status-provisioning';
+                badge.innerHTML = '<i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Provisioning';
+                startStopBtn.innerHTML = '<i class="fa-solid fa-power-off"></i> Stop';
+            } else {
+                badge.className = 'status-badge status-stopped';
+                badge.innerHTML = '<i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Stopped';
+                startStopBtn.innerHTML = '<i class="fa-solid fa-play"></i> Start';
+            }
+        }
+
+        function switchServerTab(tab) {
+            document.querySelectorAll('.server-tab-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-tab') === tab));
+            document.querySelectorAll('.server-tab-panel').forEach(p => p.classList.remove('active'));
+            document.getElementById('tab-' + tab).classList.add('active');
+        }
+
+        function toggleServerPower() {
+            const server = getActiveServer();
+            if (!server) return;
+            if (server.status === 'running') {
+                server.status = 'stopped';
+                stopServerScript();
+                appendConsoleLine(server.id, '[SYSTEM] Server stopped by user.', 'log-warn');
+                showToast('সার্ভার বন্ধ করা হয়েছে।');
+            } else {
+                server.status = 'running';
+                appendConsoleLine(server.id, '[SYSTEM] Server started.', 'log-success');
+                showToast('সার্ভার চালু করা হয়েছে।');
+            }
+            refreshServerDetailHeader();
+            renderInstances();
+            renderOverviewServerList();
+            updateOverviewMetrics();
+        }
+
+        function restartServer() {
+            const server = getActiveServer();
+            if (!server) return;
+            server.status = 'provisioning';
+            refreshServerDetailHeader();
+            renderInstances();
+            appendConsoleLine(server.id, '[SYSTEM] Restarting server...', 'log-muted');
+            stopServerScript();
+            setTimeout(() => {
+                server.status = 'running';
+                refreshServerDetailHeader();
+                renderInstances();
+                renderOverviewServerList();
+                appendConsoleLine(server.id, '[SUCCESS] Server restarted successfully.', 'log-success');
+            }, 1400);
+        }
+
+        function confirmDeleteServer() {
+            if (!activeServerId) return;
+            openModal('confirmDeleteModal');
+        }
+
+        function deleteServerConfirmed() {
+            stopServerScript();
+            servers = servers.filter(s => s.id !== activeServerId);
+            activeServerId = null;
+            closeModal('confirmDeleteModal');
+            showToast('সার্ভার ডিলিট করা হয়েছে।');
+            renderInstances();
+            renderOverviewServerList();
+            updateOverviewMetrics();
+            switchDashPanel('instances');
+        }
+
+        function saveServerSettings() {
+            const server = getActiveServer();
+            if (!server) return;
+            const newName = document.getElementById('settingsServerName').value.trim();
+            if (!newName) { showToast('সার্ভারের নাম খালি রাখা যাবে না।'); return; }
+            server.name = newName;
+            refreshServerDetailHeader();
+            renderInstances();
+            renderOverviewServerList();
+            showToast('সার্ভার সেটিংস সংরক্ষণ করা হয়েছে।');
+        }
+
+        /* --- File Manager --- */
+        const dropZone = () => document.getElementById('fileDropZone');
+
+        function handleFileUpload(fileList) {
+            const server = getActiveServer();
+            if (!server) return;
+            const plan = PLAN_LIMITS[currentPlan];
+            const maxBytes = 1 * 1024 * 1024; // 1MB per file (free plan demo limit)
+
+            Array.from(fileList).forEach(file => {
+                if (currentPlan === 'free' && file.size > maxBytes) {
+                    showToast(`"${file.name}" ফাইলটি খুব বড় (ফ্রি প্ল্যানে সর্বোচ্চ 1MB)।`);
+                    return;
+                }
+                if (currentPlan === 'free' && server.lang === 'python' && /\.(js|php|java)$/i.test(file.name)) {
+                    showToast(`ফ্রি প্ল্যানের Python সার্ভারে শুধু .py এবং কনফিগ ফাইল আপলোড করা যাবে।`);
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    server.files.push({
+                        id: 'file_' + Math.random().toString(36).substring(2, 9),
+                        name: file.name,
+                        size: file.size,
+                        content: typeof e.target.result === 'string' ? e.target.result : '',
+                        uploadedAt: new Date()
+                    });
+                    renderFileList();
+                    renderMainFileSelect();
+                    updateOverviewMetrics();
+                    appendConsoleLine(server.id, `[SYSTEM] File uploaded: ${file.name} (${formatBytes(file.size)})`, 'log-info');
+                };
+                reader.readAsText(file);
+            });
+
+            document.getElementById('fileUploadInput').value = '';
+        }
+
+        if (typeof window !== 'undefined') {
+            window.addEventListener('DOMContentLoaded', () => {
+                const zone = dropZone();
+                if (!zone) return;
+                ['dragover'].forEach(evt => zone.addEventListener(evt, (e) => { e.preventDefault(); zone.classList.add('drag-active'); }));
+                ['dragleave', 'drop'].forEach(evt => zone.addEventListener(evt, (e) => { e.preventDefault(); zone.classList.remove('drag-active'); }));
+                zone.addEventListener('drop', (e) => {
+                    if (e.dataTransfer.files.length) handleFileUpload(e.dataTransfer.files);
+                });
+            });
+        }
+
+        function renderFileList() {
+            const server = getActiveServer();
+            const list = document.getElementById('fileList');
+            if (!server || !list) return;
+
+            if (server.files.length === 0) {
+                list.innerHTML = `<div class="empty-state"><i class="fa-solid fa-folder-open"></i><p>এখনো কোনো ফাইল আপলোড করা হয়নি।</p></div>`;
+                return;
+            }
+
+            list.innerHTML = server.files.map((f, idx) => `
+                <div class="file-row" id="row-${f.id}">
+                    <div class="file-icon"><i class="fa-solid fa-file-code"></i></div>
+                    <div class="file-info">
+                        <div class="file-name-text" id="name-${f.id}">${escapeHtml(f.name)} ${idx === 0 ? '<span class="file-badge-main">MAIN</span>' : ''}</div>
+                        <div class="file-meta-text">${formatBytes(f.size)} • Uploaded ${f.uploadedAt.toLocaleTimeString()}</div>
+                    </div>
+                    <div class="file-actions">
+                        <button class="icon-btn" title="Rename" onclick="startRenameFile('${f.id}')"><i class="fa-solid fa-pen"></i></button>
+                        <button class="icon-btn danger" title="Delete" onclick="deleteFile('${f.id}')"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function startRenameFile(fileId) {
+            const server = getActiveServer();
+            const file = server.files.find(f => f.id === fileId);
+            if (!file) return;
+            const nameEl = document.getElementById('name-' + fileId);
+            nameEl.outerHTML = `<input type="text" class="file-name-input" id="name-${fileId}" value="${escapeHtml(file.name)}" onkeydown="if(event.key==='Enter') confirmRenameFile('${fileId}')" onblur="confirmRenameFile('${fileId}')">`;
+            document.getElementById('name-' + fileId).focus();
+        }
+
+        function confirmRenameFile(fileId) {
+            const server = getActiveServer();
+            const file = server.files.find(f => f.id === fileId);
+            const input = document.getElementById('name-' + fileId);
+            if (!file || !input) return;
+            const newName = input.value.trim();
+            if (newName) {
+                appendConsoleLine(server.id, `[SYSTEM] Renamed "${file.name}" → "${newName}"`, 'log-info');
+                file.name = newName;
+            }
+            renderFileList();
+            renderMainFileSelect();
+        }
+
+        function deleteFile(fileId) {
+            const server = getActiveServer();
+            if (!server) return;
+            const file = server.files.find(f => f.id === fileId);
+            server.files = server.files.filter(f => f.id !== fileId);
+            renderFileList();
+            renderMainFileSelect();
+            updateOverviewMetrics();
+            if (file) appendConsoleLine(server.id, `[SYSTEM] File deleted: ${file.name}`, 'log-warn');
+        }
+
+        function renderMainFileSelect() {
+            const server = getActiveServer();
+            const select = document.getElementById('mainFileSelect');
+            if (!server || !select) return;
+            if (server.files.length === 0) {
+                select.innerHTML = `<option>No files uploaded</option>`;
+                return;
+            }
+            select.innerHTML = server.files.map(f => `<option value="${f.id}">${escapeHtml(f.name)}</option>`).join('');
+        }
+
+        /* --- Live Console Simulator --- */
+        function renderConsole() {
+            const server = getActiveServer();
+            const output = document.getElementById('consoleOutput');
+            if (!server || !output) return;
+            output.innerHTML = server.logs.map(l => `<div class="console-line ${l.type}">${escapeHtml(l.text)}</div>`).join('');
+            output.scrollTop = output.scrollHeight;
+            document.getElementById('runBtn').style.display = scriptRunning ? 'none' : 'inline-flex';
+            document.getElementById('stopScriptBtn').style.display = scriptRunning ? 'inline-flex' : 'none';
+        }
+
+        function appendConsoleLine(serverId, text, type) {
+            const server = servers.find(s => s.id === serverId);
+            if (!server) return;
+            server.logs.push({ text, type, time: new Date() });
+            if (server.logs.length > 300) server.logs.shift();
+            if (activeServerId === serverId) {
+                const output = document.getElementById('consoleOutput');
+                if (output) {
+                    const div = document.createElement('div');
+                    div.className = 'console-line ' + type;
+                    div.innerText = text;
+                    output.appendChild(div);
+                    output.scrollTop = output.scrollHeight;
+                }
+            }
+        }
+
+        function clearConsole() {
+            const server = getActiveServer();
+            if (!server) return;
+            server.logs = [];
+            renderConsole();
+        }
+
+        function clearConsoleTimers() {
+            consoleRunTimers.forEach(t => clearTimeout(t));
+            consoleRunTimers = [];
+            if (consoleHeartbeatTimer) {
+                clearInterval(consoleHeartbeatTimer);
+                consoleHeartbeatTimer = null;
+            }
+        }
+
+        function runServerScript() {
+            const server = getActiveServer();
+            if (!server) return;
+            if (server.status !== 'running') {
+                showToast('স্ক্রিপ্ট রান করার আগে সার্ভারটি চালু করুন।');
+                return;
+            }
+            const select = document.getElementById('mainFileSelect');
+            const fileId = select.value;
+            const file = server.files.find(f => f.id === fileId);
+            if (!file) {
+                showToast('আগে একটি ফাইল আপলোড করুন।');
+                return;
+            }
+
+            scriptRunning = true;
+            renderConsole();
+            const cmd = (server.startupCommand && server.startupCommand.trim()) ? server.startupCommand.trim() : `python3 ${file.name}`;
+            appendConsoleLine(server.id, `$ ${cmd}`, 'log-muted');
+
+            const delay = (ms, fn) => consoleRunTimers.push(setTimeout(fn, ms));
+
+            delay(400, () => appendConsoleLine(server.id, '[SYSTEM] Booting interpreter and loading environment...', 'log-muted'));
+
+            delay(1000, () => {
+                // Very light static-analysis style simulation of the uploaded code
+                const content = file.content || '';
+                const printMatches = [...content.matchAll(/print\(([^)]*)\)/g)];
+                const openParens = (content.match(/\(/g) || []).length;
+                const closeParens = (content.match(/\)/g) || []).length;
+                const hasSyntaxIssue = openParens !== closeParens;
+
+                if (hasSyntaxIssue) {
+                    appendConsoleLine(server.id, `  File "${file.name}", line ?`, 'log-error');
+                    appendConsoleLine(server.id, `SyntaxError: unmatched parenthesis detected — please check your code.`, 'log-error');
+                    appendConsoleLine(server.id, `[SYSTEM] Process exited with code 1`, 'log-error');
+                    scriptRunning = false;
+                    renderConsole();
+                    return;
+                }
+
+                if (printMatches.length === 0) {
+                    appendConsoleLine(server.id, '[INFO] No print() output detected. Script executed silently.', 'log-info');
+                } else {
+                    printMatches.slice(0, 25).forEach((m, i) => {
+                        delay(300 * (i + 1), () => {
+                            let text = m[1].trim();
+                            const strMatch = text.match(/^["'](.*)["']$/);
+                            appendConsoleLine(server.id, strMatch ? strMatch[1] : `>> ${text}`, 'log-success');
+                        });
+                    });
+                }
+
+                const isLongRunning = /while\s+True|bot\.run\(|\.listen\(|serve_forever/i.test(content);
+
+                delay(300 * (printMatches.length + 1) + 400, () => {
+                    if (isLongRunning) {
+                        appendConsoleLine(server.id, '[INFO] Bot process is now running continuously in the background.', 'log-success');
+                        let beat = 0;
+                        consoleHeartbeatTimer = setInterval(() => {
+                            beat++;
+                            appendConsoleLine(server.id, `[HEARTBEAT] Process alive — uptime ${beat * 5}s`, 'log-muted');
+                        }, 5000);
+                    } else {
+                        appendConsoleLine(server.id, '[SYSTEM] Process finished with exit code 0', 'log-success');
+                        scriptRunning = false;
+                        renderConsole();
+                    }
+                });
+            });
+        }
+
+        function stopServerScript() {
+            clearConsoleTimers();
+            if (scriptRunning) {
+                const server = getActiveServer();
+                if (server) appendConsoleLine(server.id, '[SYSTEM] Script process terminated by user.', 'log-warn');
+            }
+            scriptRunning = false;
+            renderConsole();
+        }
+
+        /* ==========================================================================
+           FLOATING CALL / SUPPORT WIDGET — real actions (tel / WhatsApp / mailto)
+           ========================================================================== */
+        function toggleCallPanel() {
+            const panel = document.getElementById('callPanel');
+            const icon = document.getElementById('callFabIcon');
+            const isActive = panel.classList.toggle('active');
+            icon.className = isActive ? 'fa-solid fa-xmark' : 'fa-solid fa-phone-volume';
+        }
+
+        function closeCallPanel() {
+            document.getElementById('callPanel').classList.remove('active');
+            document.getElementById('callFabIcon').className = 'fa-solid fa-phone-volume';
+        }
+
+        function callSupportNow() {
+            // Genuinely triggers the device's phone dialer / calling app
+            window.location.href = 'tel:' + SUPPORT_PHONE_TEL;
+            showToast('ফোন ডায়ালার ওপেন হচ্ছে...');
+        }
+
+        function openWhatsAppSupport() {
+            const msg = encodeURIComponent('হ্যালো SHR HOSTER সাপোর্ট, আমার একটি সহায়তা প্রয়োজন।');
+            window.open(`https://wa.me/${SUPPORT_WHATSAPP}?text=${msg}`, '_blank');
+        }
+
+        function emailSupport() {
+            window.location.href = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('Support Request - SHR HOSTER')}`;
+        }
+
+        // Close the call panel when clicking anywhere outside of it
+        document.addEventListener('click', (e) => {
+            const panel = document.getElementById('callPanel');
+            const fab = document.getElementById('callFab');
+            if (!panel || !fab) return;
+            if (panel.classList.contains('active') && !panel.contains(e.target) && !fab.contains(e.target)) {
+                closeCallPanel();
+            }
+        });
+
+        /* ==========================================================================
+           DEPLOY CONFIG TAB — Startup Command & requirements.txt Installer
+           ========================================================================== */
+        function applyQuickCommand(cmd) {
+            const input = document.getElementById('startupCommandInput');
+            if (input) input.value = cmd;
+        }
+
+        function saveStartupCommand() {
+            const server = getActiveServer();
+            if (!server) return;
+            const input = document.getElementById('startupCommandInput');
+            const cmd = input.value.trim();
+            server.startupCommand = cmd || 'python3 main.py';
+            input.value = server.startupCommand;
+            appendConsoleLine(server.id, `[SYSTEM] Startup command updated → "${server.startupCommand}"`, 'log-info');
+            showToast('স্টার্টআপ কমান্ড সংরক্ষণ করা হয়েছে।');
+        }
+
+        function saveRequirements() {
+            const server = getActiveServer();
+            if (!server) return;
+            const textarea = document.getElementById('requirementsTextarea');
+            server.requirements = textarea.value;
+            appendConsoleLine(server.id, '[SYSTEM] requirements.txt saved.', 'log-info');
+            showToast('requirements.txt সংরক্ষণ করা হয়েছে।');
+        }
+
+        function installRequirements() {
+            const server = getActiveServer();
+            if (!server) return;
+            const textarea = document.getElementById('requirementsTextarea');
+            server.requirements = textarea.value;
+
+            const packages = textarea.value
+                .split('\n')
+                .map(l => l.trim())
+                .filter(l => l && !l.startsWith('#'));
+
+            if (packages.length === 0) {
+                showToast('আগে অন্তত একটি প্যাকেজের নাম লিখুন।');
+                return;
+            }
+            if (server.status !== 'running') {
+                showToast('প্যাকেজ ইনস্টল করার আগে সার্ভারটি চালু করুন।');
+                return;
+            }
+
+            const installBtn = document.getElementById('installReqBtn');
+            installBtn.disabled = true;
+            installBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Installing...';
+
+            switchServerTab('console');
+            appendConsoleLine(server.id, '$ pip install -r requirements.txt', 'log-muted');
+
+            const delay = (ms, fn) => consoleRunTimers.push(setTimeout(fn, ms));
+            delay(300, () => appendConsoleLine(server.id, `[SYSTEM] Resolving ${packages.length} package(s)...`, 'log-muted'));
+
+            packages.forEach((pkg, i) => {
+                delay(500 + i * 450, () => {
+                    appendConsoleLine(server.id, `Collecting ${pkg}`, 'log-muted');
+                });
+                delay(700 + i * 450, () => {
+                    const fakeVersion = `${Math.floor(Math.random()*3)+1}.${Math.floor(Math.random()*9)}.${Math.floor(Math.random()*9)}`;
+                    appendConsoleLine(server.id, `Successfully installed ${pkg}-${fakeVersion}`, 'log-success');
+                });
+            });
+
+            delay(900 + packages.length * 450, () => {
+                appendConsoleLine(server.id, `[SUCCESS] All ${packages.length} package(s) installed successfully.`, 'log-success');
+                installBtn.disabled = false;
+                installBtn.innerHTML = '<i class="fa-solid fa-download"></i> Install Dependencies';
+                showToast('ডিপেন্ডেন্সি ইনস্টল সম্পন্ন হয়েছে।');
+            });
+        }
+
+        /* --- Small helpers --- */
+        function formatBytes(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.innerText = str;
+            return div.innerHTML;
+        }
+
+        // Initialize dynamic calculations on boot
+        window.addEventListener('DOMContentLoaded', () => {
+            updateCalculator();
+            refreshLangPickerLocks();
+            const phoneLabel = document.getElementById('callPanelPhoneLabel');
+            const emailLabel = document.getElementById('callPanelEmailLabel');
+            if (phoneLabel) phoneLabel.innerText = SUPPORT_PHONE_DISPLAY;
+            if (emailLabel) emailLabel.innerText = SUPPORT_EMAIL;
+        });
+    </script>
+</body>
+</html>
